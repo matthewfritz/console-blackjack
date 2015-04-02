@@ -1,5 +1,5 @@
 # console-blackjack
-A small command-line teaching game to demonstrate programming concepts in C++ while playing Blackjack.
+A small command-line teaching game to demonstrate programming concepts in C++ under the guise of a Blackjack game.
 
 This application is compiled with GCC 4.2.1 in Mac OS/X 10.10 x64 during development. However, as long as you have GCC you should be fine; there isn't anything crazy going on in the source.
 
