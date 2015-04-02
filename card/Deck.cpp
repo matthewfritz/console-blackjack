@@ -99,7 +99,9 @@ public:
 		// place all cards back into the deck first
 		reset();
 
-		// shuffle the cards
+		// shuffle the cards; we have to resolve the scope of std since the
+		// object we're in already has a shuffle() function and we don't want
+		// the compiler to pop on ambiguity
 		std::shuffle(cards.begin(), cards.end(), g);
 	}
 };
