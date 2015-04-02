@@ -7,6 +7,14 @@ Since it's a C++ program you have to use g++ and not gcc:
 
 	g++ Blackjack.cpp
 
-There are also command-line parameters you can specify prior to execution:
+After compiling, you should see the following filename (unless you use the -o flag):
+
+	a.out
+
+There are also command-line parameters you can specify prior to execution when you compile the source:
 
 	--tests 	Run the tests of the underlying objects to ensure compatibility
+
+For example, if you wanted to run the application with its tests you would run:
+
+	./a.out --tests
