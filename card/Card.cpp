@@ -37,13 +37,13 @@ public:
 	}
 
 	/**
-	 * Returns an integer based on a comparison of values.
+	 * Returns an integer based on a comparison of card values.
 	 *
 	 * >0: This card has a greater value than the parameter
 	 * 0: This card has the same value as the parameter
 	 * <0: This card has a lesser value than the parameter
 	 */
-	int compareTo(Card c) {
+	int compare(Card c) {
 		return value - c.getValue();
 	}
 

@@ -48,6 +48,17 @@ public:
 	}
 
 	/**
+	 * Returns an integer based on a comparison of hand values.
+	 *
+	 * >0: This hand has a greater value than the parameter
+	 * 0: This hand has the same value as the parameter
+	 * <0: This hand has a lesser value than the parameter
+	 */
+	int compare(Hand h) {
+		return calculate() - h.calculate();
+	}
+
+	/**
 	 * Returns the number of cards in this hand.
 	 *
 	 * @return int
