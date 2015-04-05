@@ -40,10 +40,10 @@ public:
 	 */
 	void runTests() {
 		// create some sample cards
-		Card c(2, SUIT_CLUB);
-		Card c2(3, SUIT_CLUB);
-		Card c3(2, SUIT_DIAMOND);
-		Card c4(1, SUIT_SPADE);
+		Card c(3, SUIT_CLUB);
+		Card c2(1, SUIT_CLUB);
+		Card c3(3, SUIT_DIAMOND);
+		Card c4(8, SUIT_SPADE);
 
 		cout << "Created 4 sample cards" << endl;
 

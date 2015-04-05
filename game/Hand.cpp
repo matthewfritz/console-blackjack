@@ -50,27 +50,26 @@ public:
 		// iterate over the cards
 		for(it = cards.begin(); it != cards.end(); ++it) {
 			Card c = *it;
-			if(c.getValue() == 1) {
-				// Ace; special care must be taken to ensure a value of 11
-				// would not go over the maximum possible value of the hand.
-				// Otherwise, the Ace only counts for 1.
-				if((total + 11) <= MAX_HAND_VALUE) {
-					// the Ace should be counted as 11
-					total += 11;
-				}
-				else
-				{
-					// the Ace should be counted as 1
-					total++;
-				}
-			}
-			else if(c.getValue() >= 2 && c.getValue() < 10) {
+			if(c.getValue() >= 2 && c.getValue() < 10) {
 				// regular card
 				total += c.getValue();
 			}
 			else if(c.getValue() >= 10) {
 				// face card
 				total += 10;
+			}
+		}
+
+		// Aces are a special case so they need to be calculated differently
+		for(int i = 0; i < howManyAces; i++) {
+			// if valuing an Ace at 11 would cause an overflow for the maximum
+			// hand value, only value it at 1; otherwise value it at 11
+			if((total + 11) > MAX_HAND_VALUE) {
+				total++;
+			}
+			else
+			{
+				total += 11;
 			}
 		}
 
