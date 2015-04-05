@@ -12,14 +12,13 @@ const int MAX_HAND_VALUE = 21;
 class Hand {
 private:
 	vector<Card> cards;
-	bool hasAce;
 
 public:
 	/**
 	 * Default constructor for Hand.
 	 */
 	Hand() {
-		hasAce = false;
+
 	}
 
 	/**
@@ -29,22 +28,47 @@ public:
 	 */
 	void add(Card c) {
 		cards.push_back(c);
-
-		// is this card an Ace?
-		if(c.getValue() == 1) {
-			// this hand now has an Ace so the calculation of the overall
-			// hand value may be affected
-			hasAce = true;
-		}
 	}
 
 	/**
-	 * Calculates the total value of the cards in the hand.
+	 * Calculates and returns the total value of the cards in the hand.
 	 *
 	 * @return int
 	 */
 	int calculate() {
-		return 1;
+		int total = 0;
+
+		// grab the iterator for the hand
+		vector<Card>::iterator it;
+
+		// iterate over the cards
+		for(it = cards.begin(); it != cards.end(); ++it) {
+			Card c = *it;
+			if(c.getValue() == 1) {
+				// Ace; special care must be taken to ensure a value of 11
+				// would not go over the maximum possible value of the hand.
+				// Otherwise, the Ace only counts for 1.
+				if((total + 11) <= MAX_HAND_VALUE) {
+					// the Ace should be counted as 11
+					total += 11;
+				}
+				else
+				{
+					// the Ace should be counted as 1
+					total++;
+				}
+			}
+			else if(c.getValue() >= 2 && c.getValue() < 10) {
+				// regular card
+				total += c.getValue();
+			}
+			else if(c.getValue() >= 10) {
+				// face card
+				total += 10;
+			}
+		}
+
+		return total;
 	}
 
 	/**

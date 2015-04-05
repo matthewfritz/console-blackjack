@@ -43,8 +43,9 @@ public:
 		Card c(2, SUIT_CLUB);
 		Card c2(3, SUIT_CLUB);
 		Card c3(2, SUIT_DIAMOND);
+		Card c4(1, SUIT_SPADE);
 
-		cout << "Created 3 sample cards" << endl;
+		cout << "Created 4 sample cards" << endl;
 
 		cout << "C/C2 Same suit: " << c.sameSuit(c2) << endl;
 		cout << "C/C3 Same value: " << c.sameValue(c3) << endl;
@@ -55,6 +56,7 @@ public:
 		d.add(c);
 		d.add(c2);
 		d.add(c3);
+		d.add(c4);
 
 		cout << endl;
 		cout << "There are " << d.cardsLeft() << " cards in the deck." << endl;
@@ -80,6 +82,7 @@ public:
 		h.add(c);
 		h.add(c2);
 		h.add(c3);
+		h.add(c4);
 
 		cout << "A hand with all above cards is primarily valued at " << h.calculate() << endl;
 
