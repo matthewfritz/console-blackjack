@@ -54,7 +54,17 @@ public:
 	 */
 	string toString() {
 		string s("");
-		s += to_string(value);
+
+		// the value may need to be displayed differently so perform the
+		// value check first
+		if(value == 1) {
+			s += 'A';
+		}
+		else
+		{
+			s += to_string(value);
+		}
+
 		s += toupper(suit.getDisplay());
 		return s;
 	}
