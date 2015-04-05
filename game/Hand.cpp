@@ -12,13 +12,14 @@ const int MAX_HAND_VALUE = 21;
 class Hand {
 private:
 	vector<Card> cards;
+	int howManyAces;
 
 public:
 	/**
 	 * Default constructor for Hand.
 	 */
 	Hand() {
-
+		howManyAces = 0;
 	}
 
 	/**
@@ -28,6 +29,11 @@ public:
 	 */
 	void add(Card c) {
 		cards.push_back(c);
+
+		// if the card added is an Ace then add another Ace to the count
+		if(c.getValue() == 1) {
+			howManyAces++;
+		}
 	}
 
 	/**
